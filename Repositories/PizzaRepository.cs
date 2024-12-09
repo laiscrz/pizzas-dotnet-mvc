@@ -31,7 +31,8 @@ namespace PizzasHub.Repositories
         // Read (Obter uma Pizza por ID)
         public async Task<PizzaModel> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            var pizza = await _dbSet.FindAsync(id) ?? throw new KeyNotFoundException("Pizza não encontrada.");
+            return pizza;
         }
 
         // Update (Atualizar uma Pizza)

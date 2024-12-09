@@ -82,15 +82,22 @@ public class PizzaController : Controller
         }
     }
 
-    [HttpPost]
+    [HttpGet]
     public async Task<IActionResult> Remove(int id)
     {
-        await _pizzaService.DeletePizzaAsync(id);
-
-        TempData["Success"] = "Pizza removida com sucesso!";
+        try
+        {
+            await _pizzaService.DeletePizzaAsync(id);
+            TempData["Success"] = "Pizza removida com sucesso!";
+        }
+        catch (KeyNotFoundException ex)
+        {
+            TempData["Error"] = "Erro: " + ex.Message;
+        }
 
         return RedirectToAction("Index", "Pizza");
     }
+
 
 
 
