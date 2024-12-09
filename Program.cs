@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PizzasHub.Data;
+using PizzasHub.Repositories;
+using PizzasHub.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
+builder.Services.AddScoped<IPizzaService, PizzaService>();
 
 var app = builder.Build();
 
