@@ -22,6 +22,13 @@ public class PizzaController : Controller
     }
 
     [HttpGet]
+    public async Task<IActionResult> Details(int id)
+    {
+        var pizza = await _pizzaService.GetPizzaByIdAsync(id);
+        return View(pizza);
+    }
+
+    [HttpGet]
     public IActionResult Register()
     {
         var model = new PizzaDTO();
@@ -29,7 +36,6 @@ public class PizzaController : Controller
     }
 
 
-    [HttpPost]
     [HttpPost]
     public async Task<IActionResult> Register(PizzaDTO pizzaDto)
     {
@@ -52,10 +58,34 @@ public class PizzaController : Controller
         }
     }
 
+    public async Task<IActionResult> Edit(int id)
+    {
+        var pizza = await _pizzaService.GetPizzaByIdAsync(id);
+
+        return View(pizza);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(PizzaModel pizzaModel)
+    {
+        if (ModelState.IsValid)
+        {
+            await _pizzaService.UpdatePizzaAsync(pizzaModel);
+
+            TempData["Success"] = "Pizza atualizada com sucesso!";
+
+            return RedirectToAction("Index", "Pizza");
+        }
+        else
+        {
+            return View(pizzaModel);
+        }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Remove(int id)
     {
-        await _pizzaService.DeletePizzaAsync(id); 
+        await _pizzaService.DeletePizzaAsync(id);
 
         TempData["Success"] = "Pizza removida com sucesso!";
 

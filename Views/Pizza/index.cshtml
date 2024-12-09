@@ -49,6 +49,10 @@
 
                             <!-- Botões de Ações -->
                             <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
+                                <a class="btn btn-outline-info btn-sm w-30" asp-action="Details" asp-controller="Pizza"
+                                   asp-route-id="@pizza.Id">
+                                    <i class="bi bi-info-circle"></i> Detalhes
+                                </a>
                                 <a class="btn btn-outline-warning btn-sm w-45" asp-action="Edit" asp-controller="Pizza"
                                     asp-route-id="@pizza.Id">
                                     <i class="bi bi-pencil-square"></i> Editar
