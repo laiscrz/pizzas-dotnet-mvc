@@ -9,6 +9,16 @@
     <form method="post" asp-action="Register" asp-controller="Pizza">
         <h2 class="text-center mb-4">Cadastro de Pizza</h2>
 
+         <!-- Pré-visualização da imagem -->
+            <div class="text-center mb-3">
+                <label for="UrlCapa">
+                    <img src="@(!string.IsNullOrEmpty(Model.UrlCapa) ? Model.UrlCapa : "https://via.placeholder.com/150x200")"
+                         id="img-preview"
+                         class="rounded shadow-sm"
+                         style="width: 150px; height: 200px; object-fit: cover;" />
+                </label>
+            </div>
+
         <!-- Exibição de imagem -->
         <div class="text-center mb-3">
             <label class="form-label">URL da Imagem:</label>
@@ -48,3 +58,13 @@
         </div>
     </form>
 </div>
+
+<script>
+    const inputUrl = document.querySelector("#UrlCapa");
+    const imgPreview = document.querySelector("#img-preview");
+
+    inputUrl.addEventListener("input", function () {
+        const url = inputUrl.value;
+        imgPreview.src = url || "https://via.placeholder.com/150x200"; 
+    });
+</script>
