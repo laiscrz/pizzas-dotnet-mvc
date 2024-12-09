@@ -1,0 +1,87 @@
+@model PizzaModel
+
+@{
+    ViewData["Title"] = "Detalhes da Pizza";
+}
+
+<div class="container my-5 shadow-lg rounded-4">
+    <div class="row align-items-center bg-body-tertiary rounded-3 p-4">
+        <!-- Coluna da Imagem -->
+        <div class="col-md-5 text-center">
+            <img src="@Model.UrlCapa" class="img-fluid rounded" style="max-width: 100%; height: auto;" alt="Imagem da Pizza">
+        </div>
+
+        <!-- Coluna do Conteúdo -->
+        <div class="col-md-7">
+            <h1 class="text-danger fw-bold mb-4">@Model.Sabor</h1>
+            <p class="fs-5 text-muted">@Model.Descricao</p>
+
+            <!-- Lista de Preços com Mini Cards -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger shadow-sm">
+                        <div class="card-body text-center py-3">
+                            <h5 class="card-title fw-bold mb-0">Pequena</h5>
+                            <p class="card-text fs-6">R$ @Model.Valor.ToString("N2")</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger shadow-sm">
+                        <div class="card-body text-center py-3">
+                            <h5 class="card-title fw-bold mb-0">Média</h5>
+                            <p class="card-text fs-6">R$ @((Model.Valor + 15).ToString("N2"))</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger shadow-sm">
+                        <div class="card-body text-center py-3">
+                            <h5 class="card-title fw-bold mb-0">Grande</h5>
+                            <p class="card-text fs-6">R$ @((Model.Valor + 25).ToString("N2"))</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Voltar -->
+            <div class="text-center text-md-start">
+                <a class="btn btn-info btn-lg shadow-sm" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-arrow-left-circle"></i> Voltar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .bg-danger {
+        background-color: #dc3545 !important;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .shadow-lg {
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .rounded-4 {
+        border-radius: 1rem !important;
+    }
+</style>

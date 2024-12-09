@@ -2,7 +2,76 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .card-img-top {
+        object-fit: cover; 
+        height: 200px;
+    }
+
+    .hover-overlay {
+        display: none; 
+    }
+    
+    .gradient-text {
+        background: linear-gradient(90deg, red, rgb(255, 150, 150));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        display: inline-block;
+    }
+</style>
+
+<div class="container my-5">
+    <!-- Seção de Boas-Vindas -->
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold gradient-text">Bem-vindo ao PizzasHub!</h1>
+        <p class="lead text-muted">Gerencie facilmente os sabores de pizza no nosso sistema.</p>
+    </div>
+
+    <!-- Grid de Funcionalidades -->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <!-- Card - Cadastrar Novo Sabor -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 text-center position-relative">
+                <img src="https://t4.ftcdn.net/jpg/04/07/80/07/360_F_407800706_8wQyHutVsUOIqOimlY0BKDkoj9WH1mR0.jpg" class="card-img-top" alt="Cadastrar Novo Sabor">
+                <div class="card-body bg-light">
+                    <h5 class="card-title fw-bold text-success">Cadastrar Novo Sabor</h5>
+                    <p class="card-text text-muted">Adicione novos sabores ao cardápio.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card - Visualizar Sabores -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 text-center position-relative">
+                <img src="https://images.unsplash.com/photo-1600628421066-f6bda6a7b976?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Visualizar Sabores">
+                <div class="card-body bg-light">
+                    <h5 class="card-title fw-bold text-info">Visualizar Sabores</h5>
+                    <p class="card-text text-muted">Veja todos os sabores cadastrados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card - Atualizar Cardápio -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 text-center position-relative">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Atualizar Cardápio">
+                <div class="card-body bg-light">
+                    <h5 class="card-title fw-bold text-warning">Atualizar Cardápio</h5>
+                    <p class="card-text text-muted">Recarregue e mantenha o cardápio atualizado.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card - Excluir Sabor -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 text-center position-relative">
+                <img src="https://images.unsplash.com/photo-1611915365928-565c527a0590?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Excluir Sabor">
+                <div class="card-body bg-light">
+                    <h5 class="card-title fw-bold text-danger">Excluir Sabor</h5>
+                    <p class="card-text text-muted">Remova um sabor do cardápio com facilidade.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
