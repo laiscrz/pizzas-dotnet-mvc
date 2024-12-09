@@ -1,1 +1,1 @@
-# pizzas-hub-mvc
+# pizzas-dotnet-mvc
