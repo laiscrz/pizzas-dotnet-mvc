@@ -1,0 +1,70 @@
+@model PizzaModel
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4 text-primary fw-bold">Editar Pizza - @Model.Sabor</h2>
+
+        <form method="post" asp-action="Edit" asp-controller="Pizza">
+            <!-- Campo oculto com o ID -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Pré-visualização da imagem -->
+            <div class="text-center mb-3">
+                <label for="UrlCapa">
+                    <img src="@(!string.IsNullOrEmpty(Model.UrlCapa) ? Model.UrlCapa : "https://via.placeholder.com/150x200")"
+                         id="img-preview"
+                         class="rounded shadow-sm"
+                         style="width: 150px; height: 200px; object-fit: cover;" />
+                </label>
+            </div>
+
+            <!-- Campo para a URL da foto -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold text-secondary">URL da Capa:</label>
+                <input type="text" id="UrlCapa" asp-for="UrlCapa" class="form-control shadow-sm" placeholder="Cole a URL da imagem aqui">
+                <span class="text-danger" asp-validation-for="UrlCapa"></span>
+            </div>
+
+            <!-- Campo para Sabor -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold text-secondary">Sabor:</label>
+                <input type="text" asp-for="Sabor" class="form-control shadow-sm" placeholder="Digite o sabor da pizza">
+                <span class="text-danger" asp-validation-for="Sabor"></span>
+            </div>
+
+            <!-- Campo para Descrição -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold text-secondary">Descrição:</label>
+                <textarea asp-for="Descricao" class="form-control shadow-sm" rows="3" placeholder="Descreva a pizza"></textarea>
+                <span class="text-danger" asp-validation-for="Descricao"></span>
+            </div>
+
+            <!-- Campo para Valor -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold text-secondary">Valor (R$):</label>
+                <input type="number" min="1" step="any" asp-for="Valor" class="form-control shadow-sm" placeholder="Informe o valor da pizza">
+                <span class="text-danger" asp-validation-for="Valor"></span>
+            </div>
+
+            <!-- Botões -->
+            <div class="d-flex justify-content-between mt-4">
+                <button type="submit" class="btn btn-success w-45 shadow-sm">
+                    <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <a asp-controller="Pizza" asp-action="Index" class="btn btn-outline-primary w-45 shadow-sm">
+                    <i class="bi bi-arrow-left-circle"></i> Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const inputUrl = document.querySelector("#UrlCapa");
+    const imgPreview = document.querySelector("#img-preview");
+
+    inputUrl.addEventListener("input", function () {
+        const url = inputUrl.value;
+        imgPreview.src = url || "https://via.placeholder.com/150x200"; 
+    });
+</script>
