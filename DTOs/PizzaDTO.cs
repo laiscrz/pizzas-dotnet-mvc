@@ -1,8 +1,7 @@
-namespace PizzasHub.Models;
+namespace PizzasHub.DTOs;
 
-public class PizzaModel
+public class PizzaDTO
 {
-    public int Id { get; set; }
     public string Sabor { get; set; } = string.Empty;
     public string UrlCapa { get; set; } = string.Empty;
     public string Descricao { get; set; } = string.Empty;

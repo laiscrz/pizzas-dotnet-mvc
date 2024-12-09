@@ -9,11 +9,15 @@
 
         <!-- Botão de Cadastrar Pizza -->
         <div class="text-center mb-5">
-            <a class="btn btn-primary btn-lg shadow-sm" asp-action="Cadastrar" asp-controller="Pizza">
+            <a class="btn btn-primary btn-lg shadow-sm" asp-action="Register" asp-controller="Pizza">
                 <i class="bi bi-plus-circle"></i> Cadastrar Nova Pizza
             </a>
         </div>
 
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
         <!-- Cards de Pizzas -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
 
@@ -25,15 +29,15 @@
                         <div class="card h-100 shadow border-0">
 
                             <!-- Imagem da Pizza -->
-                            @if (!string.IsNullOrEmpty(pizza.Capa))
+                            @if (!string.IsNullOrEmpty(pizza.UrlCapa))
                             {
-                                <img src="/imagem/@pizza.Capa" class="card-img-top img-fluid rounded-top" 
-                                     style="object-fit: cover; height: 180px;" alt="Imagem da Pizza">
+                                <img src="@pizza.UrlCapa" class="card-img-top img-fluid rounded-top"
+                                    style="object-fit: cover; height: 180px;" alt="Imagem da Pizza">
                             }
                             else
                             {
-                                <img src="https://via.placeholder.com/300x180" class="card-img-top img-fluid rounded-top" 
-                                     style="object-fit: cover; height: 180px;" alt="Sem imagem disponível">
+                                <img src="https://via.placeholder.com/300x180" class="card-img-top img-fluid rounded-top"
+                                    style="object-fit: cover; height: 180px;" alt="Sem imagem disponível">
                             }
 
                             <!-- Conteúdo do Card -->
@@ -45,10 +49,12 @@
 
                             <!-- Botões de Ações -->
                             <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
-                                <a class="btn btn-outline-warning btn-sm w-45" asp-action="Editar" asp-controller="Pizza" asp-route-id="@pizza.Id">
+                                <a class="btn btn-outline-warning btn-sm w-45" asp-action="Edit" asp-controller="Pizza"
+                                    asp-route-id="@pizza.Id">
                                     <i class="bi bi-pencil-square"></i> Editar
                                 </a>
-                                <a class="btn btn-outline-danger btn-sm w-45" asp-action="Remover" asp-controller="Pizza" asp-route-id="@pizza.Id">
+                                <a class="btn btn-outline-danger btn-sm w-45" asp-action="Remove" asp-controller="Pizza"
+                                    asp-route-id="@pizza.Id">
                                     <i class="bi bi-trash"></i> Remover
                                 </a>
                             </div>
