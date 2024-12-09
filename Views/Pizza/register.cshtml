@@ -1,0 +1,50 @@
+@using PizzasHub.DTOs
+@model PizzaDTO
+
+@{
+    ViewData["Title"] = "Cadastro de Pizzas";
+}
+
+<div class="container mt-5">
+    <form method="post" asp-action="Register" asp-controller="Pizza">
+        <h2 class="text-center mb-4">Cadastro de Pizza</h2>
+
+        <!-- Exibição de imagem -->
+        <div class="text-center mb-3">
+            <label class="form-label">URL da Imagem:</label>
+            <input type="text" asp-for="UrlCapa" class="form-control shadow-none mt-2"
+                placeholder="Insira a URL da imagem" value="@Model?.UrlCapa" />
+
+        </div>
+
+        <!-- Campo sabor -->
+        <div class="mb-3">
+            <label class="form-label">Sabor:</label>
+            <input type="text" asp-for="Sabor" class="form-control shadow-none" placeholder="Nome do sabor da pizza" />
+            <span class="text-danger" asp-validation-for="Sabor"></span>
+        </div>
+
+        <!-- Campo descrição -->
+        <div class="mb-3">
+            <label class="form-label">Descrição:</label>
+            <textarea asp-for="Descricao" class="form-control shadow-none" rows="4"
+                placeholder="Descrição do sabor e ingredientes"></textarea>
+            <span class="text-danger" asp-validation-for="Descricao"></span>
+        </div>
+
+        <!-- Campo valor -->
+        <div class="mb-3">
+            <label class="form-label">Valor (R$):</label>
+            <input type="number" min="1" step="any" asp-for="Valor" class="form-control shadow-none"
+                placeholder="Preço da pizza" />
+            <span class="text-danger" asp-validation-for="Valor"></span>
+        </div>
+
+        <!-- Botões -->
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-success w-48"><i class="bi bi-plus-circle"></i> Cadastrar</button>
+            <a class="btn btn-info w-48" asp-controller="Pizza" asp-action="Index"><i
+                    class="bi bi-arrow-left-circle"></i> Voltar</a>
+        </div>
+    </form>
+</div>

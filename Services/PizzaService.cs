@@ -11,6 +11,7 @@ namespace PizzasHub.Services
         {
             _repository = repository;
         }
+        
 
         // Adicionar Pizza (Validação de negócio antes de persistir)
         public async Task AddPizzaAsync(PizzaModel pizza)

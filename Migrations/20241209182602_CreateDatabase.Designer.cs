@@ -11,7 +11,7 @@ using PizzasHub.Data;
 namespace PizzasHub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241209163618_CreateDatabase")]
+    [Migration("20241209182602_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -32,15 +32,15 @@ namespace PizzasHub.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Capa")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Sabor")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("UrlCapa")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
