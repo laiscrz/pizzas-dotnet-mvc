@@ -8,7 +8,7 @@
     <div class="container">
 
         <!-- Título da página -->
-        <h1 class="text-center mb-3 text-danger">Lista de Pizzas</h1>
+        <h1 class="text-center mb-4 fw-bold text-danger">Lista de Pizzas</h1>
 
         <!-- Botão de Cadastrar Pizza -->
         <div class="text-center mb-5">
@@ -19,18 +19,18 @@
 
         @if (TempData["Success"] != null)
         {
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Sucesso!</strong> @TempData["Success"]
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         }
 
         @if (TempData["Error"] != null)
         {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Erro!</strong> @TempData["Error"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Erro!</strong> @TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         }
 
 
@@ -41,53 +41,53 @@
             {
                 @foreach (var pizza in Model)
                 {
-                            <div class="col">
-                                <div class="card h-100 shadow-lg border-0 rounded-3 overflow-hidden">
+                    <div class="col">
+                        <div class="card h-100 shadow-lg border-0 rounded-3 overflow-hidden">
 
-                                    <!-- Imagem da Pizza -->
+                            <!-- Imagem da Pizza -->
                             @if (!string.IsNullOrEmpty(pizza.UrlCapa))
                             {
-                                            <img src="@pizza.UrlCapa" class="card-img-top img-fluid rounded-3" 
-                                                 style="object-fit: cover; height: 200px;" alt="Imagem da Pizza">
+                                <img src="@pizza.UrlCapa" class="card-img-top img-fluid rounded-3"
+                                    style="object-fit: cover; height: 200px;" alt="Imagem da Pizza">
                             }
                             else
                             {
-                                            <img src="https://via.placeholder.com/300x200" class="card-img-top img-fluid rounded-3" 
-                                                 style="object-fit: cover; height: 200px;" alt="Sem imagem disponível">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top img-fluid rounded-3"
+                                    style="object-fit: cover; height: 200px;" alt="Sem imagem disponível">
                             }
 
-                                    <!-- Conteúdo do Card -->
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title fw-bold text-primary">@pizza.Sabor</h5>
-                                        <p class="card-text text-muted small">@pizza.Descricao</p>
-                                        <h6 class="text-success fw-bold">@pizza.Valor.ToString("C")</h6>
-                                    </div>
-
-                                    <!-- Botões de Ações -->
-                                    <div class="card-footer bg-white border-0 text-center d-flex justify-content-around">
-                                        <a class="btn btn-outline-info btn-sm w-45" asp-action="Details" asp-controller="Pizza"
-                                           asp-route-id="@pizza.Id">
-                                            <i class="bi bi-info-circle"></i> Detalhes
-                                        </a>
-                                        <a class="btn btn-outline-warning btn-sm w-45" asp-action="Edit" asp-controller="Pizza"
-                                            asp-route-id="@pizza.Id">
-                                            <i class="bi bi-pencil-square"></i> Editar
-                                        </a>
-                                        <a class="btn btn-outline-danger btn-sm w-45" asp-action="Remove" asp-controller="Pizza"
-                                            asp-route-id="@pizza.Id">
-                                            <i class="bi bi-trash"></i> Remover
-                                        </a>
-                                    </div>
-
-                                </div>
+                            <!-- Conteúdo do Card -->
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold text-primary">@pizza.Sabor</h5>
+                                <p class="card-text text-muted small">@pizza.Descricao</p>
+                                <h6 class="text-success fw-bold price-display">@pizza.Valor.ToString("C")</h6>
                             </div>
+
+                            <!-- Botões de Ações -->
+                            <div class="card-footer bg-white border-0 text-center d-flex justify-content-around">
+                                <a class="btn btn-outline-info btn-sm w-45" asp-action="Details" asp-controller="Pizza"
+                                    asp-route-id="@pizza.Id">
+                                    <i class="bi bi-info-circle"></i> Detalhes
+                                </a>
+                                <a class="btn btn-outline-warning btn-sm w-45" asp-action="Edit" asp-controller="Pizza"
+                                    asp-route-id="@pizza.Id">
+                                    <i class="bi bi-pencil-square"></i> Editar
+                                </a>
+                                <a class="btn btn-outline-danger btn-sm w-45" asp-action="Remove" asp-controller="Pizza"
+                                    asp-route-id="@pizza.Id">
+                                    <i class="bi bi-trash"></i> Remover
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
                 }
             }
             else
             {
-                    <div class="col-12 text-center">
-                        <h4 class="text-muted">Nenhuma pizza cadastrada ainda.</h4>
-                    </div>
+                <div class="col-12 text-center">
+                    <h4 class="text-muted">Nenhuma pizza cadastrada ainda.</h4>
+                </div>
             }
 
         </div>
@@ -99,6 +99,7 @@
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .card:hover {
         transform: translateY(-10px);
         box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
@@ -119,5 +120,12 @@
 
     .card-footer .btn {
         padding: 0.5rem 1rem;
+    }
+
+    .price-display {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #28a745;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 </style>
