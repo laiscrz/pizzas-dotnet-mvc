@@ -1,0 +1,78 @@
+@model PizzasHub.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Erro - Algo deu errado";
+}
+
+<div class="error-container d-flex justify-content-center align-items-center vh-90">
+    <div class="error-content text-center">
+        <h1 class="display-1 text-danger fw-bold">Oops!</h1>
+        <h2 class="mb-4">Algo deu errado.</h2>
+        <p class="lead mb-4">
+            Desculpe, ocorreu um erro inesperado. Estamos trabalhando para resolver isso o mais rápido possível.
+        </p>
+
+        <!-- Detalhes do erro -->
+        <div class="error-details mb-4">
+            <strong>Código de Status:</strong> @Model.StatusCode <br />
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <strong>Mensagem de Erro:</strong> @Model.ErrorMessage <br />
+            }
+            @if (Model.ShowRequestId)
+            {
+                <strong>ID da Requisição:</strong> @Model.RequestId <br />
+            }
+            <strong>Hora do Erro:</strong> @Model.Timestamp <br />
+        </div>
+
+        <!-- Botão para retornar à página inicial -->
+        <a class="btn btn-danger btn-lg" href="@Url.Action("Index", "Home")">
+            Voltar à Página Inicial
+        </a>
+    </div>
+</div>
+
+<style>
+    .error-container {
+        color: #721c24;
+        border-radius: 10px;
+        padding: 38px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .error-container h1 {
+        font-size: 3rem;
+    }
+
+    .error-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .error-container p {
+        font-size: 1rem;
+    }
+
+    .error-details {
+        background-color: #f5c6cb;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #c82333;
+        color: white;
+    }
+</style>
