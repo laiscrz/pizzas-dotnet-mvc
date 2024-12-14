@@ -1,64 +1,65 @@
-# 🍕 Pizzas Hub MVC 
+# 🍕 **Pizzas Hub MVC**
 
-Bem-vindo ao **Pizzas Hub MVC**! Este projeto é uma aplicação web feita utilizando o padrão de arquitetura MVC (Model-View-Controller), desenvolvida em **ASP.NET Core**. Ele permite que os usuários visualizem, adicionem e gerenciem diferentes tipos de pizzas de maneira simples e intuitiva.
+Bem-vindo ao **Pizzas Hub MVC**! Este é um sistema web desenvolvido utilizando a arquitetura **MVC** (Model-View-Controller) com **ASP.NET Core**. A aplicação permite que os usuários visualizem, adicionem e gerenciem diferentes tipos de pizzas de maneira simples e intuitiva, com uma interface moderna e responsiva.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 **Tecnologias Utilizadas**
 
-- **ASP.NET Core MVC** 🖥️
-- **C#** 💻
-- **Entity Framework Core** 🛠️
-- **SQL Oracle** (Banco de dados) 🗄️
-- **Bootstrap 5** (Design Responsivo) 🎨
-- **Razor Views** (Views Dinâmicas) ⚡
-- **JavaScript** (Interatividade) 🧩
+- **ASP.NET Core MVC** 🖥️: Framework para criação de aplicações web.
+- **C#** 💻: Linguagem de programação utilizada no backend.
+- **Entity Framework Core** 🛠️: ORM para interagir com o banco de dados.
+- **SQL Oracle** 🗄️: Sistema de gerenciamento de banco de dados relacional utilizado.
+- **Bootstrap 5** 🎨: Framework CSS para design responsivo.
+- **Razor Views** ⚡: Sistema de templating para renderizar as views de forma dinâmica.
+- **JavaScript** 🧩: Para adicionar interatividade nas páginas.
 
-## 📸 Demonstração
+## 📸 **Demonstração**
 
 ![Pizzas Hub MVC](https://github.com/user-attachments/assets/5bfebb09-102a-49dc-af68-ad37e61ba5d6)
 
-## ✨ Funcionalidades
+## ✨ **Funcionalidades**
 
-- 📋 **Cadastro de Pizzas**: Adicione pizzas com nome, descrição, imagem e preços.
-- 🧑‍🍳 **Gerenciamento de Pizzas**: Visualize, edite ou exclua pizzas no sistema.
-- 💰 **Visualização de Preços**: Exiba os preços das pizzas por tamanho (Pequena, Média, Grande).
-- 🔍 **Pesquisa de Pizzas**: Busque por pizzas específicas usando filtros.
-- 📦 **Visualização de Imagem**: As imagens das pizzas são exibidas de forma responsiva e intuitiva.
+- **Cadastro de Pizzas** 📋: Adicione pizzas com informações como nome, descrição, imagem e preços (por tamanho).
+- **Gerenciamento de Pizzas** 🧑‍🍳: Visualize, edite ou exclua pizzas existentes no sistema.
+- **Visualização de Preços** 💰: Exiba os preços das pizzas divididos por tamanho (Pequena, Média, Grande).
+- **Pesquisa de Pizzas** 🔍: Busque por pizzas específicas usando filtros como nome ou preço.
+- **Visualização de Imagem** 📦: Exiba imagens das pizzas de forma responsiva, com ajuste para diferentes dispositivos.
 
-## 🔧 Como Rodar o Projeto
+## 🔧 **Como Rodar o Projeto**
 
-### 1. Clonar o repositório
-Clone o repositório para sua máquina local usando o comando abaixo:
+### 1. **Clonar o repositório**
+Clone o repositório para a sua máquina local utilizando o comando abaixo:
 
 ```bash
 git clone https://github.com/laiscrz/pizzas-dotnet-mvc.git
 ```
 
-### 2. Instalar Dependências
+### 2. **Instalar Dependências**
 
-- **Instalar Pacotes NuGet**: 
-  Navegue até o diretório do projeto e execute o comando para restaurar os pacotes:
+- **Restaurar Pacotes NuGet**: Navegue até o diretório do projeto e execute o comando para restaurar as dependências:
 
 ```bash
 dotnet restore
 ```
 
-### 3. Configurar Banco de Dados
+### 3. **Configurar Banco de Dados**
 
-- Configure o banco de dados no **appsettings.json** com as suas credenciais.
+- No arquivo `appsettings.json`, configure as credenciais do banco de dados conforme o ambiente em que você está executando a aplicação. Exemplo de configuração para **ORACLE SQL**:
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=PizzasHub;User Id=sa;Password=senha"
+  "DefaultConnection": "Data Source=oracle.fiap.com.br:1521/orcl;User ID=<USER>;Password=<SENHA>;"
 }
 ```
 
-- Execute as migrações para criar as tabelas no banco de dados:
+- Substitua `<USER>` e `<SENHA>` pelos dados de acesso à sua instância do banco de dados **Oracle**.
+
+- Após configurar a string de conexão corretamente, execute as migrações do banco de dados utilizando o seguinte comando para criar as tabelas necessárias:
 
 ```bash
 dotnet ef database update
 ```
 
-### 4. Rodar o Projeto
+### 4. **Rodar o Projeto**
 
 - Após configurar o banco de dados, execute o projeto com o comando:
 
@@ -66,15 +67,32 @@ dotnet ef database update
 dotnet run
 ```
 
-- Acesse o aplicativo através de [http://localhost:5049](http://localhost:5049).
+- Acesse a aplicação pelo navegador através do seguinte endereço:  
+  [http://localhost:5049](http://localhost:5049)
 
-## 🎨 Design Responsivo
+## 🎨 **Design Responsivo**
 
-O **Pizzas Hub MVC** foi desenvolvido para ser totalmente responsivo, garantindo que a aplicação funcione bem em dispositivos móveis, tablets e desktops.
+O **Pizzas Hub MVC** foi projetado para ser totalmente responsivo, garantindo uma experiência de usuário agradável em dispositivos móveis, tablets e desktops. A interface usa **Bootstrap 5** para ajustar o layout automaticamente, tornando a navegação fácil e intuitiva em qualquer tela.
 
-## 📚 Estrutura do Projeto
+## 📚 **Estrutura do Projeto**
 
-- **Controllers**: Contém a lógica de controle de acesso às vistas e manipulação dos dados (ex.: `PizzaController.cs`).
-- **Models**: Define as entidades do sistema, como a classe `PizzaModel` para representar uma pizza.
-- **Views**: Define o layout e o conteúdo da interface do usuário com o Razor (ex.: `Index.cshtml`).
-- **Data**: Contém a lógica de acesso a dados, incluindo o contexto do banco de dados e repositórios.
+- **Controllers**: Contêm a lógica de controle da aplicação, como gerenciar o fluxo de dados entre a **View** e o **Model** (Exemplo: `PizzaController.cs`).
+- **Models**: Definem as entidades que representam os dados no sistema, como a classe `PizzaModel` (Exemplo: `PizzaModel.cs`).
+- **Views**: Arquivos que definem o layout e o conteúdo da interface de usuário. São baseadas no Razor, permitindo uma renderização dinâmica (Exemplo: `Index.cshtml`).
+- **Data**: Contém a lógica de acesso ao banco de dados, incluindo o contexto e repositórios responsáveis pela persistência dos dados (Exemplo: `PizzaRepository.cs`).
+- **Repositories**: Abstraem o acesso aos dados e permitem a implementação de métodos CRUD (Create, Read, Update, Delete).
+- **Services**: Lógica de negócios da aplicação, podendo encapsular regras de processamento de dados antes de ser enviado para o banco ou exibido na interface.
+- **wwwroot**: Contém os arquivos estáticos, como **CSS**, **JavaScript** e **imagens**, que são utilizados para estilizar e interagir com a aplicação.
+
+  
+## 🔄 **Fluxo de Trabalho**
+
+1. O usuário acessa o **PizzaController** ao interagir com o sistema.
+2. O controlador manipula os dados com o auxílio do **PizzaRepository** (camada de dados).
+3. Os dados são passados para as **Views** via **Model Binding**.
+4. As **Views** renderizam o HTML dinâmico com as informações do modelo.
+
+## 📝 **Licença**
+
+Este projeto é licenciado sob a **MIT License**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
