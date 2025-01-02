@@ -86,12 +86,6 @@ O **Pizzas Hub MVC** foi projetado para ser totalmente responsivo, garantindo um
 - **Services**: Contêm a lógica de negócios da aplicação, processando dados antes de serem enviados ao banco de dados ou exibidos na interface. Exemplo: `PizzaService.cs`.
 - **wwwroot**: Contém arquivos estáticos, como **CSS**, **JavaScript**, e **imagens**, utilizados para estilizar e interagir com a aplicação.
   
-## 🔄 **Fluxo de Trabalho**
-
-1. O usuário acessa o **PizzaController** ao interagir com o sistema.
-2. O controlador manipula os dados com o auxílio do **PizzaRepository** (camada de dados).
-3. Os dados são passados para as **Views** via **Model Binding**.
-4. As **Views** renderizam o HTML dinâmico com as informações do modelo.
 
 ## 📝 **Licença**
 
