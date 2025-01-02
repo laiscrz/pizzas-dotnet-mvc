@@ -76,14 +76,15 @@ O **Pizzas Hub MVC** foi projetado para ser totalmente responsivo, garantindo um
 
 ## 📚 **Estrutura do Projeto**
 
-- **Controllers**: Contêm a lógica de controle da aplicação, como gerenciar o fluxo de dados entre a **View** e o **Model** (Exemplo: `PizzaController.cs`).
-- **Models**: Definem as entidades que representam os dados no sistema, como a classe `PizzaModel` (Exemplo: `PizzaModel.cs`).
-- **Views**: Arquivos que definem o layout e o conteúdo da interface de usuário. São baseadas no Razor, permitindo uma renderização dinâmica (Exemplo: `Index.cshtml`).
-- **Data**: Contém a lógica de acesso ao banco de dados, incluindo o contexto e repositórios responsáveis pela persistência dos dados (Exemplo: `PizzaRepository.cs`).
-- **Repositories**: Abstraem o acesso aos dados e permitem a implementação de métodos CRUD (Create, Read, Update, Delete).
-- **Services**: Lógica de negócios da aplicação, podendo encapsular regras de processamento de dados antes de ser enviado para o banco ou exibido na interface.
-- **wwwroot**: Contém os arquivos estáticos, como **CSS**, **JavaScript** e **imagens**, que são utilizados para estilizar e interagir com a aplicação.
-
+- **Controllers**: Contêm a lógica de controle da aplicação, como gerenciar o fluxo de dados entre a **View** e o **Model**. Exemplo: `PizzaController.cs`.
+- **Models**: Definem as entidades que representam os dados no sistema. Exemplo: `PizzaModel.cs`.
+- **DTOs (Data Transfer Objects)**: Usados para transferir dados entre as camadas da aplicação, geralmente com um subconjunto de propriedades ou modificações para um caso de uso específico. Exemplo: `PizzaDTO.cs`.
+- **Migrations**: Utilizadas no Entity Framework para gerenciar alterações no esquema do banco de dados, como criação de tabelas ou adição de colunas. Exemplo: `Create-Migration`.
+- **Views**: Arquivos baseados no Razor que definem o layout e o conteúdo da interface de usuário, permitindo uma renderização dinâmica. Exemplo: `Index.cshtml`.
+- **Data**: Contém a lógica de acesso ao banco de dados, incluindo o contexto de dados (DbContext) e repositórios responsáveis pela persistência. Exemplo: `PizzaRepository.cs`.
+- **Repositories**: Abstraem o acesso ao banco de dados e implementam métodos CRUD (Create, Read, Update, Delete). Exemplo: `PizzaRepository.cs`.
+- **Services**: Contêm a lógica de negócios da aplicação, processando dados antes de serem enviados ao banco de dados ou exibidos na interface. Exemplo: `PizzaService.cs`.
+- **wwwroot**: Contém arquivos estáticos, como **CSS**, **JavaScript**, e **imagens**, utilizados para estilizar e interagir com a aplicação.
   
 ## 🔄 **Fluxo de Trabalho**
 
