@@ -16,13 +16,23 @@ Bem-vindo ao **Pizzas Hub MVC**! Este é um sistema web desenvolvido utilizando 
 
 ![Pizzas Hub MVC](https://github.com/user-attachments/assets/5bfebb09-102a-49dc-af68-ad37e61ba5d6)
 
-## ✨ **Funcionalidades**
+## ✨ Funcionalidades
 
-- **Cadastro de Pizzas** 📋: Adicione pizzas com informações como nome, descrição, imagem e preços (por tamanho).
-- **Gerenciamento de Pizzas** 🧑‍🍳: Visualize, edite ou exclua pizzas existentes no sistema.
-- **Visualização de Preços** 💰: Exiba os preços das pizzas divididos por tamanho (Pequena, Média, Grande).
-- **Pesquisa de Pizzas** 🔍: Busque por pizzas específicas usando filtros como nome ou preço.
-- **Visualização de Imagem** 📦: Exiba imagens das pizzas de forma responsiva, com ajuste para diferentes dispositivos.
+* 📋 **Cadastro de Pizzas**
+  Adicione pizzas com nome, descrição, imagem e preços por tamanho.
+
+* 🧑‍🍳 **Gerenciamento de Pizzas**
+  Edite, exclua e visualize pizzas registradas.
+
+* 💰 **Tabela de Preços**
+  Exiba valores por tamanho (Pequena, Média, Grande).
+
+* 🔍 **Pesquisa com Filtros**
+  Busque pizzas por nome ou faixa de preço.
+
+* 🖼️ **Imagens Responsivas**
+  Visualize imagens das pizzas com layout adaptado para qualquer tela.
+  
 
 ## 🔧 **Como Rodar o Projeto**
 
